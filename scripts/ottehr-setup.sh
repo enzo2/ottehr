@@ -8,17 +8,17 @@ errors=""
 
 # Check if script is being run from root directory
 if [ ! -f ./pnpm-workspace.yaml ]; then
-  errors+="Error: This script must be run from the root of the workspace\n"
+  errors="${errors}Error: This script must be run from the root of the workspace\n"
 fi
 
 # Check if node is installed
 if ! command -v node &> /dev/null; then
-  errors+="Error: Node is not installed. Please install Node.js before running this script.\n"
+  errors="${errors}Error: Node is not installed. Please install Node.js before running this script.\n"
 fi
 
 # Check if pnpm is installed
 if ! command -v pnpm &> /dev/null; then
-  errors+="Error: pnpm is not installed. Please install pnpm before running this script.\n"
+  errors="${errors}Error: pnpm is not installed. Please install pnpm before running this script.\n"
 fi
 
 # If there were any errors, print them and exit
